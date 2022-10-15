@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ROBUS Pixel Art 404</string>
+    <string name="title">Pixel Art 404</string>
+    <string name="scan">Scanner un dessin</string>
+    <string name="draw">Dessiner</string>
+    <string name="question">Question</string>
+    <string name="start_scan">Cliquez ici pour scanner</string>
+</resources>
