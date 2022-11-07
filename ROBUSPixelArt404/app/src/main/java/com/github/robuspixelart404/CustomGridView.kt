@@ -44,6 +44,10 @@ class CustomGridView(context: Context?, attrs: AttributeSet?) : View(context, at
         color = Color.BLACK
         style = Paint.Style.FILL
     }
+    val paletteWhite: Paint = Paint().apply {
+        color = Color.BLACK
+        style = Paint.Style.STROKE
+    }
     val screenWidth = Resources.getSystem().displayMetrics.widthPixels.toFloat()
     val screenHeight = Resources.getSystem().displayMetrics.heightPixels.toFloat()
     val horizStart = 100F
@@ -67,6 +71,17 @@ class CustomGridView(context: Context?, attrs: AttributeSet?) : View(context, at
             coordX + squareWidth / 2F, coordY + squareHeight / 2F, paint)
     }
 
+    fun drawPalette(canvas: Canvas?){
+        val paletteCoordX: Float = horizCoords[1]
+        val paletteCoordY: Float = vertCoords[vertCoords.size - 1] + 200
+        drawSquare(canvas, paletteCoordX, paletteCoordY, paletteRed)
+        drawSquare(canvas, paletteCoordX + squareWidth, paletteCoordY, paletteYellow)
+        drawSquare(canvas, paletteCoordX + 2 * squareWidth, paletteCoordY, paletteBlue)
+        drawSquare(canvas, paletteCoordX + 3 * squareWidth, paletteCoordY, paletteGreen)
+        drawSquare(canvas, paletteCoordX + 4 * squareWidth , paletteCoordY, paletteBlack)
+        drawSquare(canvas, paletteCoordX + 5 * squareWidth , paletteCoordY, paletteWhite)
+    }
+
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
         initCoords()
@@ -75,13 +90,7 @@ class CustomGridView(context: Context?, attrs: AttributeSet?) : View(context, at
                 canvas?.drawCircle(horizCoords[i], vertCoords[j], 10F, paintGrid)
             }
         }
-        val paletteCoordY: Float = vertCoords[vertCoords.size - 1] + 50
-        val paletteCoordX: Float = horizCoords[horizCoords.size - 1] + 50
-        drawSquare(canvas, paletteCoordY, paletteCoordX, paletteRed)
-        drawSquare(canvas, paletteCoordY, paletteCoordX + squareWidth, paletteYellow)
-        drawSquare(canvas, paletteCoordY, paletteCoordX + 2 * squareWidth, paletteBlue)
-        drawSquare(canvas, paletteCoordY, paletteCoordX + 3 * squareWidth, paletteGreen)
-        drawSquare(canvas, paletteCoordY, paletteCoordX + 4 * squareWidth, paletteBlack)
+        drawPalette(canvas)
         for(i in 0 until gridWidth){
             for (j in 0 until gridHeight){
                 if (xMouse < horizCoords[i] + squareWidth / 2F && xMouse > horizCoords[i] - squareWidth / 2F &&
