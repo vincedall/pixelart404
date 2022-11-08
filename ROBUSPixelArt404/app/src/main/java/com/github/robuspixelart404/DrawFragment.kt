@@ -18,11 +18,6 @@ class DrawFragment(val activity: MainActivity) : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val grid: CustomGridView = view.findViewById(R.id.grid)
-        for (list in grid.squares){
-            for (i in 0 until grid.gridHeight){
-                list.add(false)
-            }
-        }
         grid.setOnTouchListener { _, event ->
             when (event.action){
                 MotionEvent.ACTION_DOWN -> {

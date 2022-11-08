@@ -26,13 +26,25 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:orientation="vertical">
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/question"
             android:textSize="35sp"
             android:paddingStart="20dp"
             android:textStyle="bold"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:paddingStart="13dp"
+                android:layout_gravity="center"
+                android:src="@drawable/add_question"
+                android:id="@+id/add_question"/>
+        </androidx.appcompat.widget.LinearLayoutCompat>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
