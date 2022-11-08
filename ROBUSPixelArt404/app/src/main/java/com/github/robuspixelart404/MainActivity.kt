@@ -31,8 +31,8 @@ class MainActivity : AppCompatActivity() {
         LinearLayout.LayoutParams.MATCH_PARENT, 2)
     val questions: MutableList<Question> = mutableListOf()
     var currentQuestion: Int = 0
-    lateinit var answers: LinearLayout
-    lateinit var questionView: TextView
+    //lateinit var answers: LinearLayout
+    //lateinit var questionView: TextView
     val textViewList: MutableList<CustomTextView> = mutableListOf()
     var init: Boolean = true
 
@@ -40,9 +40,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         supportFragmentManager.beginTransaction().
-        add(R.id.main_fragment, MainFragment(this), "main_menu").commit()
-        answers = findViewById(R.id.answers)
-        questionView = findViewById(R.id.question)
+        add(R.id.main_fragment, MainFragment(), "main_menu").commit()
+        //answers = findViewById(R.id.answers)
+        //questionView = findViewById(R.id.question)
     }
 
     fun correctAnswer(){
@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun swapQuestion(){
-        answers.removeAllViews()
+        /*answers.removeAllViews()
         textViewList.clear()
         if(!init) {
             currentQuestion++
@@ -80,18 +80,6 @@ class MainActivity : AppCompatActivity() {
                 line.setBackgroundColor(Color.LTGRAY)
                 answers.addView(line)
             }
-        }
-    }
-
-    fun swapFragment(target: String){
-        if (target.equals("scan")){
-            supportFragmentManager.beginTransaction().
-            replace(R.id.main_fragment, ScanFragment(this), "scan").
-            addToBackStack("scan").commit()
-        }else if (target.equals("draw")){
-            supportFragmentManager.beginTransaction().
-            replace(R.id.main_fragment, DrawFragment(this), "draw").
-            addToBackStack("draw").commit()
-        }
+        }*/
     }
 }

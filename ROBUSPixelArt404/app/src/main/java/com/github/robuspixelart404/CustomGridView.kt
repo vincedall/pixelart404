@@ -11,6 +11,7 @@ class CustomGridView(context: Context?, attrs: AttributeSet?) : View(context, at
     var gridHeight: Int = 8
     var squareWidth: Float = 80F
     var squareHeight: Float = 80F
+    var paletteColorWidth: Float = 80F
     var xMouse: Float = 0F
     var yMouse: Float = 0F
     var erasing: Boolean = false
@@ -67,14 +68,14 @@ class CustomGridView(context: Context?, attrs: AttributeSet?) : View(context, at
         for (i in 0 until gridHeight){
             vertCoords[i] = vertStart + (i * vertDist)
         }
-        paletteCoordX = horizCoords[1]
-        paletteCoordY = vertCoords[vertCoords.size - 1] + 200
+        paletteCoordX = screenWidth / 2F - paletteColorWidth * 6 / 2F
+        paletteCoordY = vertCoords[vertCoords.size - 1] + 100
         palettes.add(PaletteColor(paletteCoordX, paletteCoordY, paletteRed))
-        palettes.add(PaletteColor(paletteCoordX + squareWidth, paletteCoordY, paletteYellow))
-        palettes.add(PaletteColor(paletteCoordX + 2 * squareWidth, paletteCoordY, paletteBlue))
-        palettes.add(PaletteColor(paletteCoordX + 3 * squareWidth, paletteCoordY, paletteGreen))
-        palettes.add(PaletteColor(paletteCoordX + 4 * squareWidth, paletteCoordY, paletteBlack))
-        palettes.add(PaletteColor(paletteCoordX + 5 * squareWidth, paletteCoordY, paletteWhite))
+        palettes.add(PaletteColor(paletteCoordX + paletteColorWidth, paletteCoordY, paletteYellow))
+        palettes.add(PaletteColor(paletteCoordX + 2 * paletteColorWidth, paletteCoordY, paletteBlue))
+        palettes.add(PaletteColor(paletteCoordX + 3 * paletteColorWidth, paletteCoordY, paletteGreen))
+        palettes.add(PaletteColor(paletteCoordX + 4 * paletteColorWidth, paletteCoordY, paletteBlack))
+        palettes.add(PaletteColor(paletteCoordX + 5 * paletteColorWidth, paletteCoordY, paletteWhite))
         for (i in 0 until gridWidth){
             for (j in 0 until gridHeight){
                 squares.add(Square(horizCoords[i] - squareWidth / 2F, vertCoords[j] - squareHeight / 2F,
